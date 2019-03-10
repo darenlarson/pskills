@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+body,
+input,
+select,
+textarea {
+  margin: 0;
+  padding: 0;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-size: 1.7rem;
+  font-weight: 300;
+  letter-spacing: 0.025em;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@media screen and (max-width: 1680px) {
+  body,
+  input,
+  select,
+  textarea {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  body,
+  input,
+  select,
+  textarea {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 360px) {
+  body,
+  input,
+  select,
+  textarea {
+    font-size: 1.1rem;
+  }
+}

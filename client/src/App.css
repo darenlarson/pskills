@@ -1,0 +1,95 @@
+.MainNav {
+  padding-left: 10%;
+  background-color: #2a2f4a;
+}
+
+.MainNav a {
+  display: inline-block;
+  margin-right: 8%;
+  color: #ffffff;
+  padding: 10px 0px;
+  cursor: default;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  line-height: 3.25em;
+  text-transform: uppercase;
+}
+
+.PrisonListWrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.PrisonCard {
+  width: 17%;
+  margin-left: 2.5%;
+  margin-top: 15px;
+  color: black;
+  font-size: 1.6rem;
+}
+
+.WorkerFormWrapper {
+  padding: 0 20%;
+  background-color: #2a2f4a;
+}
+
+.Purple {
+  background-color: #372a4a;
+  color: #ffffff;
+}
+
+.text {
+  color: black;
+  text-align: left;
+}
+
+.TableRow {
+  display: flex;
+}
+.WorkerDetails {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.PrisonDetailsWrapper {
+  width: 100%;
+}
+
+.ModalFoot {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ModalImage {
+  width: 200px;
+  height: auto;
+}
+
+.ModalFlex {
+  display: flex;
+}
+
+.HomeLink {
+  color: yellow;
+}
+
+.LoginError {
+  margin: 35% 30% 35%;
+  width: 50%;
+  font-size: 20px;
+}
+
+.LoginError button {
+  font-size: 35px;
+}
+
+.CardName {
+  text-decoration: underline
+}
+
+.FlexCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
