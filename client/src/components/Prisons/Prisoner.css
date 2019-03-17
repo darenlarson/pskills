@@ -1,0 +1,13 @@
+.prisoner-container {
+    width: 400px;
+    margin: 30px;
+    border: 1px solid grey;
+}
+
+.invisible {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
