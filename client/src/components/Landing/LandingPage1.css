@@ -1,0 +1,94 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+}
+
+.banner {
+  margin: 50px 0 0 0;
+  /* border: 1px solid pink; */
+}
+
+.banner .heading {
+  width: 600px;
+  /* border: 1px solid green; */
+}
+
+.banner h1 {
+  margin: 0 0 30px 0;
+}
+
+.banner p {
+  line-height: 1.5;
+}
+
+.action-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px;
+  /* border: 1px solid red; */
+}
+
+.action-container div {
+  width: 300px;
+  border: 1px solid lightgrey;
+  text-align: center;
+  padding: 10px;
+}
+
+.action-container h3 {
+  font-size: 18px;
+  margin: 0 0 15px 0;
+}
+
+.action-container button {
+
+}
+
+.important {
+  margin: 100px 0 0 0;
+}
+
+.important h2 {
+  margin: 0 0 15px 0;
+}
+
+.important p {
+  margin: 0 0 15px 0;
+}
+
+.important ul {
+  margin: 0 0 0 40px;
+  list-style: square;
+}
+
+.media {
+  margin: 100px 0 100px 0;
+}
+
+.media h2 {
+  margin: 0 0 25px 0;
+}
+
+.article-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.article-container a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.article {
+  width: 300px;
+  border: 1px solid grey;
+  padding: 15px;
+  height: 325px;
+  overflow: hidden;
+}
+
+.article h3 {
+  font-size: 20px;
+  margin: 0 0 10px 0;
+}

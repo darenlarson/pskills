@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Route } from "react-router-dom";
 import "./App.css";
+import LandingPage1 from './components/Landing/LandingPage1';
 import Landing from "./components/Landing/Landing";
 import NavigationBar from "./components/Navigation/NavigationBar";
 import Prisons from "./components/Prisons/Prisons";
@@ -59,7 +60,9 @@ class App extends React.Component {
       <div className="AppContainer">
         <Route path="/" component={NavigationBar} />
 
-        <Route exact path="/" component={Landing} />
+        <Route exact path="/" component={LandingPage1} />
+        
+        <Route exact path="/home" component={Landing} />
 
         <Route
           exact
