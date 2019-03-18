@@ -1,39 +1,63 @@
 .container {
-  max-width: 1000px;
+  /* max-width: 1000px; */
   margin: 0 auto;
   /* border: 1px solid red; */
 }
 
-.banner {
-  margin: 50px 0 0 0;
-  /* border: 1px solid pink; */
+.banner-wrapper {
+  background-image: url(../../images/farm1.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  background-blend-mode: lighten;
 }
 
-.banner .heading {
+.banner-contents {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+.banner-contents .heading {
   width: 600px;
-  /* border: 1px solid green; */
+  
 }
 
-.banner h1 {
+.heading h1 {
   margin: 0 0 30px 0;
+  color: white;
+  font-weight: 600;
+  background: #777;
+  letter-spacing: 2px;
+  width: 250px;
+  text-align: center;
 }
 
-.banner p {
+.banner-contents p {
   line-height: 1.5;
+  color: #FFFFFF;
+  background: #777;
+  font-size: 18px;
+  letter-spacing: 2px;
+  padding: 5px;
+  width: 560px;
 }
 
 .action-container {
   display: flex;
   justify-content: space-around;
   margin: 50px;
-  /* border: 1px solid red; */
 }
 
 .action-container div {
   width: 300px;
-  border: 1px solid lightgrey;
   text-align: center;
   padding: 10px;
+  background: #777;
+  color: white;
+  letter-spacing: 2px;
+  line-height: 1.5;
 }
 
 .action-container h3 {
@@ -42,53 +66,135 @@
 }
 
 .action-container button {
-
+  border: 1px solid white;
+  background: #777;
+  color: white;
+  border-radius: 3px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  padding: 8px;
 }
 
-.important {
-  margin: 100px 0 0 0;
+.action-container button:hover {
+  cursor: pointer;
+  background: white;
+  color: #777;
 }
 
-.important h2 {
+.important-wrapper {
+  background-image: url(../../images/forklift.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  background-blend-mode: lighten;
+}
+
+.important-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px 0 200px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.important-content .opportunities {
+  line-height: 1.5;
+  color: #FFFFFF;
+  background: #777;
+  font-size: 18px;
+  letter-spacing: 2px;
+  padding: 5px;
+}
+
+.important-content h2 {
+  margin: 0 0 30px 0;
+  color: white;
+  font-weight: 600;
+  background: #777;
+  letter-spacing: 2px;
+  width: 250px;
+  text-align: center;
+}
+
+.important-content p {
   margin: 0 0 15px 0;
+  font-size: 18px;
+  
 }
 
-.important p {
-  margin: 0 0 15px 0;
-}
-
-.important ul {
+.important-content ul {
   margin: 0 0 0 40px;
   list-style: square;
 }
 
-.media {
-  margin: 100px 0 100px 0;
+
+
+
+.media-wrapper {
+  background-image: url(../../images/blue-factory.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  background-blend-mode: lighten;
+  display: flex;
+  justify-content: center;
 }
 
-.media h2 {
-  margin: 0 0 25px 0;
+.media-wrapper .media-content {
+  padding: 50px 0 150px 0;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.article-container {
+.media-wrapper h2 {
+  margin: 0 0 30px 0;
+  color: white;
+  font-weight: 600;
+  background: #777;
+  letter-spacing: 2px;
+  width: 665px;
+  text-align: center;
+}
+
+.media-wrapper .article-container {
   display: flex;
   justify-content: space-between;
 }
 
-.article-container a {
+.media-wrapper .article-container a {
   text-decoration: none;
   color: inherit;
+  
 }
 
-.article {
-  width: 300px;
-  border: 1px solid grey;
+.media-wrapper .article {
+  width: 250px;
   padding: 15px;
-  height: 325px;
+  height: 250px;
   overflow: hidden;
+  line-height: 1.5;
+  color: #FFFFFF;
+  background: #777;
+  font-size: 18px;
+  /* padding: 5px; */
+  margin: 10px;
+  border-radius: 3px;
 }
 
-.article h3 {
-  font-size: 20px;
+.media-wrapper .article:hover {
+  cursor: pointer;
+  /* background: white; */
+  /* color: #777; */
+  box-shadow: -5px 10px 10px 2px #777;
+  transition: all 0.3s ease;
+}
+
+.media-wrapper .article h3 {
+  font-size: 18px;
   margin: 0 0 10px 0;
 }

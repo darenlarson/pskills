@@ -58,7 +58,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="AppContainer">
-        <Route path="/" component={NavigationBar} />
+        {/* <Route path="/" component={NavigationBar} /> */}
 
         <Route exact path="/" component={LandingPage1} />
         
