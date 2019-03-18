@@ -1,7 +1,5 @@
 .container {
-  /* max-width: 1000px; */
   margin: 0 auto;
-  /* border: 1px solid red; */
 }
 
 .banner-wrapper {
@@ -21,7 +19,6 @@
 
 .banner-contents .heading {
   width: 600px;
-  
 }
 
 .heading h1 {
@@ -30,17 +27,19 @@
   font-weight: 600;
   background: #777;
   letter-spacing: 2px;
-  width: 250px;
+  width: 270px;
   text-align: center;
+  font-size: 3.5rem;
+  line-height: 2;
 }
 
 .banner-contents p {
   line-height: 1.5;
   color: #FFFFFF;
   background: #777;
-  font-size: 18px;
+  font-size: 2rem;
   letter-spacing: 2px;
-  padding: 5px;
+  padding: 15px;
   width: 560px;
 }
 
@@ -61,7 +60,7 @@
 }
 
 .action-container h3 {
-  font-size: 18px;
+  font-size: 2rem;
   margin: 0 0 15px 0;
 }
 
@@ -103,9 +102,9 @@
   line-height: 1.5;
   color: #FFFFFF;
   background: #777;
-  font-size: 18px;
+  font-size: 2rem;
   letter-spacing: 2px;
-  padding: 5px;
+  padding: 15px;
 }
 
 .important-content h2 {
@@ -114,13 +113,15 @@
   font-weight: 600;
   background: #777;
   letter-spacing: 2px;
-  width: 250px;
+  width: 350px;
   text-align: center;
+  font-size: 3.5rem;
+  line-height: 2;
 }
 
 .important-content p {
   margin: 0 0 15px 0;
-  font-size: 18px;
+  font-size: 2rem;
   
 }
 
@@ -157,8 +158,9 @@
   font-weight: 600;
   background: #777;
   letter-spacing: 2px;
-  width: 665px;
+  width: 420px;
   text-align: center;
+  font-size: 3.5rem;
 }
 
 .media-wrapper .article-container {
@@ -195,6 +197,45 @@
 }
 
 .media-wrapper .article h3 {
-  font-size: 18px;
+  font-size: 1.8rem;
+  font-weight: 500;
   margin: 0 0 10px 0;
+}
+
+
+/* Tablet */
+@media ( max-width: 800px ) {
+  .banner-contents p {
+    max-width: 400px;
+  }
+
+  .action-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .action-container div {
+    margin: 10px;
+  }
+
+  .important-wrapper {
+    display: flex;
+  }
+
+  .important-content .opportunities {
+    max-width: 450px;
+  }
+
+  .important-content div {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+  }
+
+  .media-content .article-container {
+    /* flex-direction: column; */
+    flex-flow: wrap;
+    justify-content: space-around;
+  }
 }

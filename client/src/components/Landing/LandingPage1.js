@@ -53,7 +53,7 @@ const LandingPage1 = props => {
       <section className="media-wrapper">
         <div className="media-content">
 
-          <h2>Don't Take Our Word For Why This is Important</h2>
+          <h2>Don't Take Our Word</h2>
           <div className="article-container">
             <a href="https://www.prisonpolicy.org/reports/outofwork.html" target="_blank">
               <div className="article">
