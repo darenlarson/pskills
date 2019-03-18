@@ -10,13 +10,13 @@ const LandingPage1 = props => {
         <div className="banner-contents">
 
           <div className="heading">
-            <h1>Prisoner Skills</h1>
+            <h1>InMate Skills</h1>
             <p>We connect people that are currently incarcerated with employers that can provide income, training, and a satisfying work environment.</p>
           </div>
 
           <div className="action-container">
             <div>
-              <h3>Are you a prison administrator that wants to give your prisoners an opportunity?</h3>
+              <h3>Are you a prison administrator that wants to give your inmates an opportunity?</h3>
               <button>Contact Us</button>
             </div>
             <div>

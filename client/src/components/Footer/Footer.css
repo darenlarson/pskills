@@ -1,0 +1,14 @@
+.footer-wrapper {
+    background: #777;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+}
+
+.footer-content div {
+    margin: 5px 20px;
+    font-size: 14px;
+}

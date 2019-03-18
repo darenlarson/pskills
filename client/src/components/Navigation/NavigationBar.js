@@ -5,7 +5,7 @@ const NavigationBar = () => {
     return (
         <div className="header-wrapper">
             <div className="header-content">
-                <div>Prisoner Skills</div>
+                <div>InMate Skills</div>
                 <div>Login</div>
             </div>
         </div>

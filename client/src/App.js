@@ -7,6 +7,7 @@ import Landing from "./components/Landing/Landing";
 import NavigationBar from "./components/Navigation/NavigationBar";
 import Prisons from "./components/Prisons/Prisons";
 import PrisonOverview from "./components/Prisons/PrisonOverview";
+import Footer from "./components/Footer/Footer";
 
 class App extends React.Component {
   constructor(props) {
@@ -58,12 +59,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="AppContainer">
-        {/* <Route path="/" component={NavigationBar} /> */}
-
+        <Route path="/" component={NavigationBar} />
         <Route exact path="/" component={LandingPage1} />
-        
         <Route exact path="/home" component={Landing} />
-
         <Route
           exact
           path="/prisons/"
@@ -76,7 +74,6 @@ class App extends React.Component {
             />
           )}
         />
-
         <Route
           path="/prisons/:id"
           render={props => (
@@ -87,6 +84,7 @@ class App extends React.Component {
             />
           )}
         />
+        <Route path="/" component={Footer} />
       </div>
     )
   };
