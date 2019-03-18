@@ -1,5 +1,7 @@
 .footer-wrapper {
     background: #777;
+    position: static;
+    bottom: 0;
 }
 
 .footer-content {

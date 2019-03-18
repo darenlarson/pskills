@@ -17,7 +17,7 @@ const LandingPage1 = props => {
           <div className="action-container">
             <div>
               <h3>Are you a prison administrator that wants to give your inmates an opportunity?</h3>
-              <button>Contact Us</button>
+              <button>Register</button>
             </div>
             <div>
               <h3>Are you an employer that wants to provide an opportunity to those in need?</h3>
