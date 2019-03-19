@@ -1,13 +1,29 @@
-.prisoner-container {
-    width: 400px;
-    margin: 30px;
-    border: 1px solid grey;
+.prisoner-wrapper {
+  max-width: 800px;
+  width: 90%;
+  margin: 10px;
+  border: 1px solid grey;
+  background: #777;
+  color: white;
+  padding: 10px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.prisoner-wrapper:hover {
+  cursor: pointer;
+  box-shadow: -5px 10px 10px 2px #777;
+  transition: all 0.3s ease;
 }
 
 .invisible {
-    display: none;
+  display: none;
 }
 
 .visible {
-    display: block;
+  display: block;
 }

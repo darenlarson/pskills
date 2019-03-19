@@ -16,11 +16,13 @@ class Prisoner extends React.Component {
 
     render() {
         return (
-            <div className="prisoner-container" onClick={this.toggleFullInfo}>
+            <div className="prisoner-wrapper" onClick={this.toggleFullInfo}>
                 <div className="summary-info">
-                    <h3>{this.props.name}</h3>
+                    <div className="header">
+                        <h3>{this.props.name}</h3>
+                        <p>{this.props.availability === 1 ? 'Avaiable' : 'Currently Unavailable'}</p>
+                    </div>
                     <p>{this.props.skills}</p>
-                    <p>{this.props.availability}</p>
                 </div>
 
                 <div className={`full-info ${this.state.visibility}`}>

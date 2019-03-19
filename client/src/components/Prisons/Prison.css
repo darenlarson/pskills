@@ -1,25 +1,57 @@
 .prison-wrapper {
-    width: 800px;
-    margin: 10px;
-    border: 1px solid grey;
+  max-width: 800px;
+  width: 90%;
+  margin: 10px;
+  border: 1px solid grey;
+  background: #777;
+  color: white;
+  padding: 10px;
+}
+
+.prison-wrapper:hover {
+  cursor: pointer;
+  box-shadow: -5px 10px 10px 2px #777;
+  transition: all 0.3s ease;
 }
 
 .prison-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 .prison-name {
-
 }
 
 .prison-contact {
-    width: 225px;
-    display: flex;
-    justify-content: flex-end;
+  width: 225px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .prison-contact p {
-    margin: 0 10px 0 10px;
+  margin: 0 10px 0 10px;
+}
+
+@media (max-width: 800px) {
+    .prison-wrapper {
+        width: 60%;
+    }
+
+    .prison-wrapper p {
+        margin: 5px 0 5px 0;
+    }
+
+  .prison-header {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .prison-contact {
+      flex-direction: column-reverse;
+  }
+
+  .prison-contact p {
+      margin: 5px 0 5px 0;
+  }
 }
