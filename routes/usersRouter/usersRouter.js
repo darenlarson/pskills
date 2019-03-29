@@ -10,7 +10,6 @@ router.post('/register', (req, res) => {
     const userInfo = req.body;
     const hash = bcrypt.hashSync(userInfo.password, 12);
     userInfo.password = hash;
-    console.log(hash);
 
     db('users')
         .insert(userInfo)
@@ -19,6 +18,7 @@ router.post('/register', (req, res) => {
         })
         .catch(err => {
             res.status(500).json({ error: "Something happened. You were not successfully registered" });
+            console.log('error happened!!!')
         });
 });
 
@@ -29,6 +29,7 @@ router.post('/login', (req, res) => {
         .where({ username: creds.username })
         .first()
         .then(user => {
+            console.log('logged in success')
             if (user && bcrypt.compareSync(creds.password, user.password)) {
                 const token = generateToken(user);
                 res.status(200).json({ message: `Welcome ${user.username}`, id: user.id, token });

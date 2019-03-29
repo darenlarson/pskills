@@ -1,61 +1,43 @@
-import React from "react";
-import { Button } from "reactstrap";
-import axios from "axios";
-
-// const registerEndpoint = "https://prisoner-skills-backend.herokuapp.com/api/users/register";
-const registerEndpoint = "http://localhost:5000/api/users/register";
+import React from 'react';
+import axios from 'axios';
+import './css/Login-Register.css';
 
 class Register extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      password: ""
+      username: '',
+      password: '',
+      passwordConfirm: '',
+    }
+  };
+
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value })
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+
+    const credentials = {
+      username: this.state.username,
+      password: this.state.password,
     };
-  }
 
-  handleChanges = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
+    this.props.registerUser(credentials);
   };
 
-  handleRegister = e => {
-    e.preventDefault();
-    axios
-      .post(`${registerEndpoint}`, this.state)
-      .then(function(response) {
-        console.log(response);
-      }, this.props.toggleRegister())
-      .catch(function(error) {
-        alert(error.response.data.error);
-      });
-  };
 
   render() {
     return (
-      <div>
-        <h2>Register User</h2>
-        <form onSubmit={this.handleRegister}>
-          <input
-            name="username"
-            placeholder="username"
-            onChange={this.handleChanges}
-          />
-          <input
-            name="password"
-            placeholder="password"
-            onChange={this.handleChanges}
-          />
-          <Button type="submit">Register User</Button>
-        </form>
-        <Button type="button" onClick={this.props.toggleRegister}>
-          {" "}
-          Back to Login{" "}
-        </Button>
-      </div>
-    );
-  }
-}
+      <form className="login-form" onSubmit={this.handleSubmit}>
+        <input required type="text" name="username" onChange={this.handleChange} value={this.state.username} placeholder="Username" />
+        <input required type="password" name="password" onChange={this.handleChange} value={this.state.password} placeholder="Password" />
+        <input required type="password" name="passwordConfirm" onChange={this.handleChange} value={this.state.passwordConfirm} placeholder="Confirm Password" />
+        <button type="submit">Login</button>
+      </form>
+    )
+  };
+};
 
 export default Register;

@@ -12,7 +12,7 @@ router.get('/:prisonId', (req, res) => {
             res.status(200).json(prison);
         })
         .catch(err => {
-            res.status(500).json(err);
+            res.status(500).json({ error: err, message: "Prison does not exist" });
         });
 });
 

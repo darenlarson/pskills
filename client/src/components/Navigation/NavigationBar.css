@@ -17,3 +17,11 @@
     font-size: 20px;
     font-weight: 600;
 }
+
+.login-btn {
+    text-decoration: none;
+    color: white;
+    margin: 5px 20px;
+    font-size: 20px;
+    font-weight: 600;
+}

@@ -1,12 +1,16 @@
 import React from "react";
 import axios from "axios";
-import { Route } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 import "./App.css";
 import LandingPage1 from './components/Landing/LandingPage1';
 import NavigationBar from "./components/Navigation/NavigationBar";
 import Prisons from "./components/Prisons/Prisons";
 import PrisonOverview from "./components/Prisons/PrisonOverview";
+import LoginView from './components/Login/LoginView';
 import Footer from "./components/Footer/Footer";
+import EmployerHome from "./components/Employer/EmployerHome";
+import Authentication from './components/Login/Authentication';
+import EmployerHOC from "./components/Employer/EmployerHOC";
 
 class App extends React.Component {
   constructor(props) {
@@ -15,6 +19,8 @@ class App extends React.Component {
       prisons: [],
       prisonInfo: {},
       prisoners: [],
+      adminId: null,
+      prisonId: null,
     };
   }
 
@@ -55,6 +61,52 @@ class App extends React.Component {
       });
   };
 
+  registerUser = credentials => {
+    const endpoint = "http://localhost:5000/api/users/register";
+
+    axios
+      .post(endpoint, credentials)
+      .then(res => {
+        this.loginUser(credentials)
+      })
+      .catch(err => console.log(err));
+
+  };
+
+  loginUser = credentials => {
+    const loginEndpoint = "http://localhost:5000/api/users/login";
+
+    axios
+          .post(loginEndpoint, credentials)
+          .then(res => {
+            localStorage.setItem('jwt', res.data.token);
+            this.props.history.push('/employer')
+            this.setState({ adminId: res.data.id})
+            // this.getPrisonInfo(res.data.id)
+            axios
+              .get(`http://localhost:5000/api/prisons/${res.data.id}`)
+              .then(res => {
+                this.setState({
+                  prisonInfo: {
+                    id: res.data.id,
+                    location: res.data.location,
+                    name: res.data.name,
+                    phoneNumber: res.data.phoneNumber,
+                  },
+                  prisoners: res.data.prisoners,
+                })
+              })
+              .catch(err => {
+                console.log(err);
+              });
+          })
+          .catch(err => console.log(err));
+  };
+
+  createPrison = () => {
+
+  };
+
   render() {
     return (
       <div className="AppContainer">
@@ -82,10 +134,33 @@ class App extends React.Component {
             />
           )}
         />
+
+        <Route
+          path="/login"
+          render={props => (
+            <Authentication
+              {...props}
+              loginUser={this.loginUser}
+              registerUser={this.registerUser}
+            />
+          )}
+        />
+
+        <Route
+          path="/employer"
+          render={props => (
+            <EmployerHOC
+              {...props}
+              prisonId={this.state.prisonId}
+            />
+          )}
+        />
+
+
         <Route path="/" component={Footer} />
       </div>
     )
   };
 };
 
-export default App;
+export default withRouter(App);
