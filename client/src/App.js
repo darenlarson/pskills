@@ -22,7 +22,7 @@ class App extends React.Component {
       prisonId: null,
       prisonerId: null,
       prisonerName: '',
-      prisonerAvailability: null,
+      prisonerAvailability: 0,
       prisonerSkills: '',
       prisonerPicture: '',
       prisonerProfile: '',
@@ -76,13 +76,33 @@ class App extends React.Component {
         this.setState({
           prisonerId: res.data.id,
           prisonerName: res.data.name,
-          prisonerAvailability: res.data.Availability,
+          prisonerAvailability: res.data.availability,
           prisonerSkills: res.data.skills,
           prisonerPicture: res.data.picture,
           prisonerProfile: res.data.profile,
         })
       })
       .catch();
+  };
+
+  editPrisonerInfo = (id, changes) => {
+    console.log('editPrisonerInfo() invoked');
+
+    const token = localStorage.getItem('jwt');
+    const requestOptions = {
+      headers: {
+        authorization: token
+      }
+    };
+
+    axios
+      .put(`http://localhost:5000/api/prisoners/${id}`, changes, requestOptions)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   registerUser = credentials => {
@@ -195,6 +215,7 @@ class App extends React.Component {
             <EditPrisoner
               {...props}
               getPrisonerInfo={this.getPrisonerInfo}
+              editPrisonerInfo={this.editPrisonerInfo}
               prisonerId={this.state.prisonerId}
               prisonerName={this.state.prisonerName}
               prisonerAvailability={this.state.prisonerAvailability}

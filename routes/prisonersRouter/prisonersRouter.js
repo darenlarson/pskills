@@ -63,6 +63,8 @@ router.post('/', protect, (req, res) => {
 router.put('/:id', protect, (req, res) => {
     const changes = req.body;
     const id = req.params.id;
+    console.log(changes)
+    console.log(id)
 
     db.getByPrisonerId(id)
         .then(prisonerObj => {
