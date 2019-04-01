@@ -1,5 +1,4 @@
 import React from 'react';
-import BlueFactory from '../../images/blue-factory.jpg';
 import './LandingPage1.css';
 
 const LandingPage1 = props => {
@@ -55,21 +54,21 @@ const LandingPage1 = props => {
 
           <h2>Don't Take Our Word</h2>
           <div className="article-container">
-            <a href="https://www.prisonpolicy.org/reports/outofwork.html" target="_blank">
+            <a href="https://www.prisonpolicy.org/reports/outofwork.html" target="_blank" rel="noopener noreferrer">
               <div className="article">
                 <h3>Out of Prison & Out of Work</h3>
                 <p>"Estimate of unemployment among the 5 million formerly incarcerated people living in the United States. Our analysis shows that formerly incarcerated people are unemployed at a rate of over 27%..." </p>
               </div>
             </a>
 
-            <a href="https://www.ncjrs.gov/pdffiles/workampr.pdf" target="_blank">
+            <a href="https://www.ncjrs.gov/pdffiles/workampr.pdf" target="_blank" rel="noopener noreferrer">
               <div className="article">
                 <h3>South Carolina Takes the Initiative</h3>
                 <p>"Three companies have set up successful joint ventures that employ over 400 inmates in South Carolina’s prisons..."</p>
               </div>
             </a>
 
-            <a href="https://www.latimes.com/opinion/op-ed/la-oe-bozelko-prison-labor-20171020-story.html"  target="_blank">
+            <a href="https://www.latimes.com/opinion/op-ed/la-oe-bozelko-prison-labor-20171020-story.html"  target="_blank" rel="noopener noreferrer">
               <div className="article">
                 <h3>What is Prison Labor?</h3>
                 <p>"Some call prison labor the new Jim Crow because of the outsized number of black and brown inmates in U.S. prisons. It's a facile charge, and worse, it may be keeping progressive companies away from prison projects..."</p>

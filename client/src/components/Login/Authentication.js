@@ -8,17 +8,21 @@ class Authentication extends React.Component {
   };
 
   componentDidMount() {
+    // if (localStorage.getItem("jwt")) {
+    //   this.setState({ loggedIn: true });
+    // } else {
+    //   this.setState({ loggedIn: false });
+    // }
+
     if (localStorage.getItem("jwt")) {
-      this.setState({ loggedIn: true });
-    } else {
-      this.setState({ loggedIn: false });
+      this.props.history.push('/employer')
     }
   }
 
   render() {
-    if (this.state.loggedIn || this.props.loggedIn) {
-      return <EmployerHOC />
-    } else
+    // if (this.state.loggedIn || this.props.loggedIn) {
+    //   return <EmployerHOC prisonId={this.props.prisonId} prisonInfo={this.props.prisonInfo} prisoners={this.props.prisoners} getPrisonInfo={this.props.getPrisonInfo} />
+    // } else
       return (
         <LoginView
           loginUser={this.props.loginUser}

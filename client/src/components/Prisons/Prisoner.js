@@ -26,7 +26,7 @@ class Prisoner extends React.Component {
                 </div>
 
                 <div className={`full-info ${this.state.visibility}`}>
-                    <img src={this.props.picture} />
+                    <img src={this.props.picture} alt="profile" />
                     <p>{this.props.profile}</p>
                 </div>
             </div>

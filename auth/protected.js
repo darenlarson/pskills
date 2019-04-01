@@ -32,6 +32,7 @@ function protect(req, res, next) {
 function generateToken(user) {
     const payload = {
         username: user.username,
+        userId: user.id,
     };
 
     const secret = process.env.JWT_SECRET;

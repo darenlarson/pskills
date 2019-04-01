@@ -6,11 +6,10 @@ import LandingPage1 from './components/Landing/LandingPage1';
 import NavigationBar from "./components/Navigation/NavigationBar";
 import Prisons from "./components/Prisons/Prisons";
 import PrisonOverview from "./components/Prisons/PrisonOverview";
-import LoginView from './components/Login/LoginView';
 import Footer from "./components/Footer/Footer";
-import EmployerHome from "./components/Employer/EmployerHome";
 import Authentication from './components/Login/Authentication';
 import EmployerHOC from "./components/Employer/EmployerHOC";
+import EditPrisoner from "./components/Employer/EditPrisoner";
 
 class App extends React.Component {
   constructor(props) {
@@ -21,6 +20,12 @@ class App extends React.Component {
       prisoners: [],
       adminId: null,
       prisonId: null,
+      prisonerId: null,
+      prisonerName: '',
+      prisonerAvailability: null,
+      prisonerSkills: '',
+      prisonerPicture: '',
+      prisonerProfile: '',
     };
   }
 
@@ -53,12 +58,31 @@ class App extends React.Component {
           },
           prisoners: res.data.prisoners,
         })
-
-        this.props.history.push(`/prisons/${id}`)
       })
       .catch(err => {
         console.log(err);
       });
+  };
+
+  getPrisonerInfo = id => {
+    console.log('getPrisonerInfo() invoked')
+    console.log('id:', id)
+
+    axios
+      .get(`http://localhost:5000/api/prisoners/${id}`)
+      .then(res => {
+        console.log(res);
+
+        this.setState({
+          prisonerId: res.data.id,
+          prisonerName: res.data.name,
+          prisonerAvailability: res.data.Availability,
+          prisonerSkills: res.data.skills,
+          prisonerPicture: res.data.picture,
+          prisonerProfile: res.data.profile,
+        })
+      })
+      .catch();
   };
 
   registerUser = credentials => {
@@ -80,6 +104,7 @@ class App extends React.Component {
           .post(loginEndpoint, credentials)
           .then(res => {
             localStorage.setItem('jwt', res.data.token);
+            localStorage.setItem('userId', res.data.id)
             this.props.history.push('/employer')
             this.setState({ adminId: res.data.id})
             // this.getPrisonInfo(res.data.id)
@@ -142,16 +167,40 @@ class App extends React.Component {
               {...props}
               loginUser={this.loginUser}
               registerUser={this.registerUser}
+              prisonId={this.state.prisonId}
+              prisonInfo={this.state.prisonInfo}
+              prisoners={this.state.prisoners}
+              getPrisonInfo={this.getPrisonInfo}
             />
           )}
         />
 
         <Route
+          exact
           path="/employer"
           render={props => (
             <EmployerHOC
               {...props}
               prisonId={this.state.prisonId}
+              prisonInfo={this.state.prisonInfo}
+              prisoners={this.state.prisoners}
+              getPrisonInfo={this.getPrisonInfo}
+            />
+          )}
+        />
+
+        <Route
+          path="/employer/prisoner/edit/:id"
+          render={props => (
+            <EditPrisoner
+              {...props}
+              getPrisonerInfo={this.getPrisonerInfo}
+              prisonerId={this.state.prisonerId}
+              prisonerName={this.state.prisonerName}
+              prisonerAvailability={this.state.prisonerAvailability}
+              prisonerSkills={this.state.prisonerSkills}
+              prisonerPicture={this.state.prisonerPicture}
+              prisonerProfile={this.state.prisonerProfile}
             />
           )}
         />

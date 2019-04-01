@@ -1,12 +1,8 @@
 import React from "react";
-import axios from "axios";
 import Prison from "./Prison";
 import "./Prisons.css";
 
 class Prisons extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     this.props.getPrisons();

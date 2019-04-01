@@ -1,12 +1,7 @@
 import React from "react";
-import { Route } from "react-router-dom";
 import "./Prison.css";
-import PrisonOverview from "./PrisonOverview";
 
 class Prison extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   handleClick = id => {
     this.props.getPrisonInfo(id);

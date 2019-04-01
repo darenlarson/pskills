@@ -1,0 +1,32 @@
+.edit-wrapper {
+  max-width: 800px;
+  width: 90%;
+  margin: 10px auto;
+  border: 1px solid grey;
+  background: #777;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-form input {
+  background: #777;
+  color: white;
+  border: none;
+  font-size: 1.6rem;
+}
+
+.edit-form .header {
+    font-size: 2.2rem;
+}
+
+.edit-form textarea {
+  background: #777;
+  color: white;
+  border: none;
+}
