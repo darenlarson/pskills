@@ -11,20 +11,21 @@ class EditPrisoner extends React.Component {
       prisonerProfile: '',
       prisonerSkills: '',
     };
-  }
+  };
 
   componentDidMount() {
-    const id = this.props.match.params.id;
-    
-    this.props.getPrisonerInfo(id);
-
-    this.setState({
-      prisonerName: this.props.prisonerName,
-      prisonerAvailability: this.props.prisonerAvailability,
-      prisonerPicture: this.props.prisonerPicture,
-      prisonerProfile: this.props.prisonerProfile,
-      prisonerSkills: this.props.prisonerSkills,
+    const prisoner = this.props.prisoners.find(p => {
+      return p.id === parseInt(this.props.match.params.id);
     })
+    console.log(prisoner)
+    
+    this.setState({
+      prisonerName: prisoner.name,
+      prisonerAvailability: prisoner.availability,
+      prisonerPicture: prisoner.picture,
+      prisonerProfile: prisoner.profile,
+      prisonerSkills: prisoner.skills,
+    }) 
   };
 
   handleChange = event => {
@@ -48,14 +49,26 @@ class EditPrisoner extends React.Component {
     }
 
     this.props.editPrisonerInfo(id, changes);
+
+    this.props.history.goBack();
   };
+
+  handleDelete = event => {
+    event.preventDefault();
+
+    const id = this.props.match.params.id;
+
+    this.props.deletePrisoner(id);
+
+    this.props.history.goBack();
+  }
 
   render() {
     return (
       <div className="edit-wrapper">
         <form className="edit-form" onSubmit={this.handleSubmit}>
-          <input className="header" type="text" name="prisonerName" onChange={this.handleChange} value={this.state.prisonerName} placeholder={this.props.prisonerName} />
-          <input type="text" name="prisonerSkills" onChange={this.handleChange} value={this.state.prisonerSkills} placeholder={this.props.prisonerSkills} />
+          <input className="header" type="text" name="prisonerName" onChange={this.handleChange} value={this.state.prisonerName} placeholder={this.state.prisonerName} />
+          <input type="text" name="prisonerSkills" onChange={this.handleChange} value={this.state.prisonerSkills} placeholder={this.state.prisonerSkills} />
           <div className="radio-group">
             <div className="radio-set">
               <input type="radio" id="unavailable" name="prisonerAvailability" onChange={this.handleStatusChange} value={0} checked={this.state.prisonerAvailability === 0 ? true : false} />
@@ -66,8 +79,11 @@ class EditPrisoner extends React.Component {
               <label for="available">Available</label>
             </div>
           </div>
-          <textarea rows="10" name="prisonerProfile" onChange={this.handleChange} value={this.state.prisonerProfile} placeholder={this.props.prisonerProfile} />
-          <button type="submit">Submit</button>
+          <textarea rows="10" name="prisonerProfile" onChange={this.handleChange} value={this.state.prisonerProfile} placeholder={this.state.prisonerProfile} />
+          <div className="button-container">
+            <button type="submit">Submit</button>
+            <button type="button" onClick={this.handleDelete}>Delete</button>
+          </div>
         </form>
       </div>
     );

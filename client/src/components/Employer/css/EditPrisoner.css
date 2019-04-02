@@ -50,6 +50,12 @@
   width: 100%;
 }
 
+.edit-form .button-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
 .edit-form button {
   border: 1px solid white;
   background: #777;

@@ -26,6 +26,83 @@
   margin-right: 40px;
 }
 
+.add-wrapper {
+  max-width: 800px;
+  width: 90%;
+  margin: 10px auto;
+  border: 1px solid grey;
+  background: #777;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* width: 100%; */
+}
+
+.add-form input {
+  background: rgb(150, 150, 150);
+  color: white;
+  border: none;
+  font-size: 1.6rem;
+  margin: 10px 30px 10px 30px;
+  width: 100%;
+}
+
+.add-form .header {
+    font-size: 2.2rem;
+}
+
+.add-form .radio-group {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+}
+
+.add-form .radio-group .radio-set {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.add-form textarea {
+  background: rgb(150, 150, 150);
+  color: white;
+  border: none;
+  margin: 10px 30px 10px 30px;
+  width: 100%;
+}
+
+.add-form .button-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.add-form button {
+  border: 1px solid white;
+  background: #777;
+  color: white;
+  border-radius: 3px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  padding: 8px;
+  width: 200px;
+}
+
+.add-form button:hover {
+  cursor: pointer;
+  background: white;
+  color: #777;
+}
+
+
+
 @media (max-width: 800px) {
   .prison-info {
     flex-direction: column;

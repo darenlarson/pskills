@@ -82,7 +82,33 @@ class App extends React.Component {
           prisonerProfile: res.data.profile,
         })
       })
-      .catch();
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  addPrisoner = prisonerInfo => {
+    console.log('addPrisoner() invoked');
+    console.log(prisonerInfo);
+
+    prisonerInfo.prisonId = this.state.prisonInfo.id;
+
+    const token = localStorage.getItem('jwt');
+    const requestOptions = {
+      headers: {
+        authorization: token
+      }
+    };
+
+    axios
+      .post(`http://localhost:5000/api/prisoners`, prisonerInfo, requestOptions)
+      .then(res => {
+        console.log(res);
+        this.getPrisonInfo(this.state.prisonInfo.id);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   editPrisonerInfo = (id, changes) => {
@@ -99,11 +125,33 @@ class App extends React.Component {
       .put(`http://localhost:5000/api/prisoners/${id}`, changes, requestOptions)
       .then(res => {
         console.log(res);
+        this.getPrisonInfo(this.state.prisonInfo.id)
       })
       .catch(err => {
         console.log(err);
       });
   };
+
+  deletePrisoner = id => {
+    console.log('deletePrisoner() invoked');
+
+    const token = localStorage.getItem('jwt');
+    const requestOptions = {
+      headers: {
+        authorization: token
+      }
+    };
+
+    axios
+      .delete(`http://localhost:5000/api/prisoners/${id}`, requestOptions)
+      .then(res => {
+        console.log(res)
+        this.getPrisonInfo(this.state.prisonInfo.id)
+      })
+      .catch(err => {
+        console.log(err)
+      });
+  }
 
   registerUser = credentials => {
     const endpoint = "http://localhost:5000/api/users/register";
@@ -205,6 +253,7 @@ class App extends React.Component {
               prisonInfo={this.state.prisonInfo}
               prisoners={this.state.prisoners}
               getPrisonInfo={this.getPrisonInfo}
+              addPrisoner={this.addPrisoner}
             />
           )}
         />
@@ -216,12 +265,16 @@ class App extends React.Component {
               {...props}
               getPrisonerInfo={this.getPrisonerInfo}
               editPrisonerInfo={this.editPrisonerInfo}
+              deletePrisoner={this.deletePrisoner}
+              // getPrisonInfo={this.getPrisonInfo}
+              // prisonId={this.state.prisonId}
               prisonerId={this.state.prisonerId}
               prisonerName={this.state.prisonerName}
               prisonerAvailability={this.state.prisonerAvailability}
               prisonerSkills={this.state.prisonerSkills}
               prisonerPicture={this.state.prisonerPicture}
               prisonerProfile={this.state.prisonerProfile}
+              prisoners={this.state.prisoners}
             />
           )}
         />
