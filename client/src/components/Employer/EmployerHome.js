@@ -68,7 +68,7 @@ class EmployerHome extends React.Component {
 
           <div className="add-wrapper">
             <form className="add-form" onSubmit={this.handleSubmit}>
-              <div className="header">Add Prisoners</div>
+              <h2>Add Prisoners</h2>
               <input
                 className="header"
                 type="text"

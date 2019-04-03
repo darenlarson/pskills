@@ -37,6 +37,7 @@ class EditPrison extends React.Component {
         <div className="edit-prison-wrapper">
           <div className="edit-form-container">
             <form className="edit-prison-form" onSubmit={this.handleSubmit}>
+              <h2>Edit Prison Information</h2>
               <input
                 className="header"
                 required
