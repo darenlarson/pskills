@@ -1,14 +1,13 @@
 .header-wrapper {
-    /* border: 1px solid green; */
     background: #777;
     position: sticky;
     top: 0;
 }
 
 .header-content {
-    /* border: 1px solid red; */
     display: flex;
     justify-content: space-between;
+    align-items: center;
     color: white;
 }
 
@@ -18,10 +17,19 @@
     font-weight: 600;
 }
 
+.header-content .btn-wrapper {
+    /* border: 1px solid red; */
+    display: flex;
+}
+
 .login-btn {
     text-decoration: none;
     color: white;
     margin: 5px 20px;
     font-size: 20px;
     font-weight: 600;
+}
+
+.login-btn:hover {
+    cursor: pointer;
 }

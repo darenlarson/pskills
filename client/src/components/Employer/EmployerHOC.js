@@ -15,8 +15,8 @@ class EmployerHOC extends React.Component {
   }
 
   render() {
-    if (this.props.prisonId >= 1) {
-      return <CreatePrison />;
+    if (this.props.prisonId === null) {
+      return <CreatePrison createPrison={this.props.createPrison} />;
     } else {
       return (
         <EmployerHome

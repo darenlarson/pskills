@@ -2,12 +2,12 @@ import React from "react";
 import axios from "axios";
 import { Route, withRouter } from "react-router-dom";
 import "./App.css";
-import LandingPage1 from './components/Landing/LandingPage1';
+import LandingPage1 from "./components/Landing/LandingPage1";
 import NavigationBar from "./components/Navigation/NavigationBar";
 import Prisons from "./components/Prisons/Prisons";
 import PrisonOverview from "./components/Prisons/PrisonOverview";
 import Footer from "./components/Footer/Footer";
-import Authentication from './components/Login/Authentication';
+import Authentication from "./components/Login/Authentication";
 import EmployerHOC from "./components/Employer/EmployerHOC";
 import EditPrisoner from "./components/Employer/EditPrisoner";
 
@@ -17,15 +17,15 @@ class App extends React.Component {
     this.state = {
       prisons: [],
       prisonInfo: {},
+      prisonId: null,
       prisoners: [],
       adminId: null,
-      prisonId: null,
       prisonerId: null,
-      prisonerName: '',
+      prisonerName: "",
       prisonerAvailability: 0,
-      prisonerSkills: '',
-      prisonerPicture: '',
-      prisonerProfile: '',
+      prisonerSkills: "",
+      prisonerPicture: "",
+      prisonerProfile: ""
     };
   }
 
@@ -42,8 +42,8 @@ class App extends React.Component {
   };
 
   getPrisonInfo = id => {
-    console.log('getPrisonInfo() invoked')
-    console.log(`id: ${id}`)
+    console.log("getPrisonInfo() invoked");
+    console.log(`id: ${id}`);
     axios
       .get(`http://localhost:5000/api/prisons/${id}`)
       .then(res => {
@@ -54,10 +54,16 @@ class App extends React.Component {
             id: res.data.id,
             location: res.data.location,
             name: res.data.name,
-            phoneNumber: res.data.phoneNumber,
+            phoneNumber: res.data.phoneNumber
           },
           prisoners: res.data.prisoners,
-        })
+        });
+
+        if (res.data.id) {
+          this.setState({
+            prisonId: res.data.id
+          })
+        }
       })
       .catch(err => {
         console.log(err);
@@ -65,8 +71,8 @@ class App extends React.Component {
   };
 
   getPrisonerInfo = id => {
-    console.log('getPrisonerInfo() invoked')
-    console.log('id:', id)
+    console.log("getPrisonerInfo() invoked");
+    console.log("id:", id);
 
     axios
       .get(`http://localhost:5000/api/prisoners/${id}`)
@@ -79,8 +85,8 @@ class App extends React.Component {
           prisonerAvailability: res.data.availability,
           prisonerSkills: res.data.skills,
           prisonerPicture: res.data.picture,
-          prisonerProfile: res.data.profile,
-        })
+          prisonerProfile: res.data.profile
+        });
       })
       .catch(err => {
         console.log(err);
@@ -88,12 +94,13 @@ class App extends React.Component {
   };
 
   addPrisoner = prisonerInfo => {
-    console.log('addPrisoner() invoked');
+    console.log("addPrisoner() invoked");
     console.log(prisonerInfo);
 
     prisonerInfo.prisonId = this.state.prisonInfo.id;
-
-    const token = localStorage.getItem('jwt');
+    console.log(prisonerInfo);
+    
+    const token = localStorage.getItem("jwt");
     const requestOptions = {
       headers: {
         authorization: token
@@ -112,9 +119,9 @@ class App extends React.Component {
   };
 
   editPrisonerInfo = (id, changes) => {
-    console.log('editPrisonerInfo() invoked');
+    console.log("editPrisonerInfo() invoked");
 
-    const token = localStorage.getItem('jwt');
+    const token = localStorage.getItem("jwt");
     const requestOptions = {
       headers: {
         authorization: token
@@ -125,7 +132,7 @@ class App extends React.Component {
       .put(`http://localhost:5000/api/prisoners/${id}`, changes, requestOptions)
       .then(res => {
         console.log(res);
-        this.getPrisonInfo(this.state.prisonInfo.id)
+        this.getPrisonInfo(this.state.prisonInfo.id);
       })
       .catch(err => {
         console.log(err);
@@ -133,9 +140,9 @@ class App extends React.Component {
   };
 
   deletePrisoner = id => {
-    console.log('deletePrisoner() invoked');
+    console.log("deletePrisoner() invoked");
 
-    const token = localStorage.getItem('jwt');
+    const token = localStorage.getItem("jwt");
     const requestOptions = {
       headers: {
         authorization: token
@@ -145,13 +152,13 @@ class App extends React.Component {
     axios
       .delete(`http://localhost:5000/api/prisoners/${id}`, requestOptions)
       .then(res => {
-        console.log(res)
-        this.getPrisonInfo(this.state.prisonInfo.id)
+        console.log(res);
+        this.getPrisonInfo(this.state.prisonInfo.id);
       })
       .catch(err => {
-        console.log(err)
+        console.log(err);
       });
-  }
+  };
 
   registerUser = credentials => {
     const endpoint = "http://localhost:5000/api/users/register";
@@ -159,45 +166,66 @@ class App extends React.Component {
     axios
       .post(endpoint, credentials)
       .then(res => {
-        this.loginUser(credentials)
+        this.loginUser(credentials);
       })
       .catch(err => console.log(err));
-
   };
 
   loginUser = credentials => {
     const loginEndpoint = "http://localhost:5000/api/users/login";
 
     axios
-          .post(loginEndpoint, credentials)
+      .post(loginEndpoint, credentials)
+      .then(res => {
+        localStorage.setItem("jwt", res.data.token);
+        localStorage.setItem("userId", res.data.id);
+        this.props.history.push("/employer");
+        this.setState({ adminId: res.data.id });
+
+        axios
+          .get(`http://localhost:5000/api/prisons/${res.data.id}`)
           .then(res => {
-            localStorage.setItem('jwt', res.data.token);
-            localStorage.setItem('userId', res.data.id)
-            this.props.history.push('/employer')
-            this.setState({ adminId: res.data.id})
-            // this.getPrisonInfo(res.data.id)
-            axios
-              .get(`http://localhost:5000/api/prisons/${res.data.id}`)
-              .then(res => {
-                this.setState({
-                  prisonInfo: {
-                    id: res.data.id,
-                    location: res.data.location,
-                    name: res.data.name,
-                    phoneNumber: res.data.phoneNumber,
-                  },
-                  prisoners: res.data.prisoners,
-                })
-              })
-              .catch(err => {
-                console.log(err);
-              });
+            this.setState({
+              prisonInfo: {
+                id: res.data.id,
+                location: res.data.location,
+                name: res.data.name,
+                phoneNumber: res.data.phoneNumber
+              },
+              prisoners: res.data.prisoners
+            });
           })
-          .catch(err => console.log(err));
+          .catch(err => {
+            console.log(err);
+          });
+      })
+      .catch(err => console.log(err));
   };
 
-  createPrison = () => {
+  createPrison = prisonInfo => {
+    console.log("createPrison() invoked");
+    console.log(prisonInfo);
 
+    prisonInfo.id = this.state.adminId
+
+    const token = localStorage.getItem("jwt");
+    const requestOptions = {
+      headers: {
+        authorization: token
+      }
+    };
+
+    axios
+      .post(`http://localhost:5000/api/prisons/`, prisonInfo, requestOptions)
+      .then(res => {
+        console.log(res);
+        this.setState({
+          prisonId: res.data[0]
+        })
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   render() {
@@ -254,6 +282,7 @@ class App extends React.Component {
               prisoners={this.state.prisoners}
               getPrisonInfo={this.getPrisonInfo}
               addPrisoner={this.addPrisoner}
+              createPrison={this.createPrison}
             />
           )}
         />
@@ -279,11 +308,10 @@ class App extends React.Component {
           )}
         />
 
-
         <Route path="/" component={Footer} />
       </div>
-    )
-  };
-};
+    );
+  }
+}
 
 export default withRouter(App);

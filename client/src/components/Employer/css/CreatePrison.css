@@ -1,0 +1,47 @@
+.add-prison-wrapper {
+  max-width: 800px;
+  width: 90%;
+  margin: 10px auto;
+  border: 1px solid grey;
+  background: #777;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.create-prison-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* width: 100%; */
+}
+
+.create-prison-form input {
+  background: rgb(150, 150, 150);
+  color: white;
+  border: none;
+  font-size: 1.6rem;
+  margin: 10px 30px 10px 30px;
+  width: 100%;
+}
+
+.create-prison-form .header {
+    font-size: 2.2rem;
+}
+
+.create-prison-form button {
+  border: 1px solid white;
+  background: #777;
+  color: white;
+  border-radius: 3px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  padding: 8px;
+  width: 200px;
+}
+
+.create-prison-form button:hover {
+  cursor: pointer;
+  background: white;
+  color: #777;
+}

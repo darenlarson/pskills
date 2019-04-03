@@ -42,6 +42,13 @@ class EmployerHome extends React.Component {
     };
 
     this.props.addPrisoner(prisonerInfo);
+
+    this.setState({
+      prisonerName: '',
+      prisonerAvailability: 0,
+      prisonerProfile: '',
+      prisonerSkills: '',
+    })
   };
 
   render() {
