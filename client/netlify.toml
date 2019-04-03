@@ -1,0 +1,4 @@
+[build]
+base = "pskills/"
+publish = "pskills/build/"
+command = "yarn build"
