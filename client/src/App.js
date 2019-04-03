@@ -32,7 +32,8 @@ class App extends React.Component {
 
   getPrisons = () => {
     axios
-      .get("http://localhost:5000/api/prisons")
+      // .get("http://localhost:5000/api/prisons")
+      .get("https://prisoner-skills.herokuapp.com/api/prisons")
       .then(res => {
         console.log(res);
         this.setState({ prisons: res.data });
@@ -46,7 +47,8 @@ class App extends React.Component {
     console.log("getPrisonInfo() invoked");
     console.log(`id: ${id}`);
     axios
-      .get(`http://localhost:5000/api/prisons/${id}`)
+      // .get(`http://localhost:5000/api/prisons/${id}`)
+      .get(`https://prisoner-skills.herokuapp.com/prisons/${id}`)
       .then(res => {
         console.log(res);
 
@@ -76,7 +78,8 @@ class App extends React.Component {
     console.log("id:", id);
 
     axios
-      .get(`http://localhost:5000/api/prisoners/${id}`)
+      // .get(`http://localhost:5000/api/prisoners/${id}`)
+      .get(`https://prisoner-skills.herokuapp.com/api/prisoners/${id}`)
       .then(res => {
         console.log(res);
 
@@ -109,7 +112,8 @@ class App extends React.Component {
     };
 
     axios
-      .post(`http://localhost:5000/api/prisoners`, prisonerInfo, requestOptions)
+      // .post(`http://localhost:5000/api/prisoners`, prisonerInfo, requestOptions)
+      .post(`https://prisoner-skills.herokuapp.com/api/prisoners`, prisonerInfo, requestOptions)
       .then(res => {
         console.log(res);
         this.getPrisonInfo(this.state.prisonInfo.id);
@@ -130,7 +134,8 @@ class App extends React.Component {
     };
 
     axios
-      .put(`http://localhost:5000/api/prisoners/${id}`, changes, requestOptions)
+      // .put(`http://localhost:5000/api/prisoners/${id}`, changes, requestOptions)
+      .put(`https://prisoner-skills.herokuapp.com/api/prisoners/${id}`, changes, requestOptions)
       .then(res => {
         console.log(res);
         this.getPrisonInfo(this.state.prisonInfo.id);
@@ -151,7 +156,8 @@ class App extends React.Component {
     };
 
     axios
-      .delete(`http://localhost:5000/api/prisoners/${id}`, requestOptions)
+      // .delete(`http://localhost:5000/api/prisoners/${id}`, requestOptions)
+      .delete(`https://prisoner-skills.herokuapp.com/api/prisoners/${id}`, requestOptions)
       .then(res => {
         console.log(res);
         this.getPrisonInfo(this.state.prisonInfo.id);
@@ -162,7 +168,8 @@ class App extends React.Component {
   };
 
   registerUser = credentials => {
-    const endpoint = "http://localhost:5000/api/users/register";
+    // const endpoint = "http://localhost:5000/api/users/register";
+    const endpoint = "https://prisoner-skills.herokuapp.com/api/users/register";
 
     axios
       .post(endpoint, credentials)
@@ -173,7 +180,8 @@ class App extends React.Component {
   };
 
   loginUser = credentials => {
-    const loginEndpoint = "http://localhost:5000/api/users/login";
+    // const loginEndpoint = "http://localhost:5000/api/users/login";
+    const loginEndpoint = "https://prisoner-skills.herokuapp.com/api/users/login";
 
     axios
       .post(loginEndpoint, credentials)
@@ -184,7 +192,8 @@ class App extends React.Component {
         this.setState({ adminId: res.data.id });
 
         axios
-          .get(`http://localhost:5000/api/prisons/${res.data.id}`)
+          // .get(`http://localhost:5000/api/prisons/${res.data.id}`)
+          .get(`https://prisoner-skills.herokuapp.com/api/prisons/${res.data.id}`)
           .then(res => {
             this.setState({
               prisonInfo: {
@@ -217,7 +226,8 @@ class App extends React.Component {
     };
 
     axios
-      .post(`http://localhost:5000/api/prisons/`, prisonInfo, requestOptions)
+      // .post(`http://localhost:5000/api/prisons/`, prisonInfo, requestOptions)
+      .post(`https://prisoner-skills.herokuapp.com/api/prisons/`, prisonInfo, requestOptions)
       .then(res => {
         console.log(res);
         this.setState({
@@ -243,7 +253,8 @@ class App extends React.Component {
     };
 
     axios
-      .put(`http://localhost:5000/api/prisons/${id}`, changes, requestOptions)
+      // .put(`http://localhost:5000/api/prisons/${id}`, changes, requestOptions)
+      .put(`https://prisoner-skills.herokuapp.com/api/prisons/${id}`, changes, requestOptions)
       .then(res => {
         console.log(res);
         this.getPrisonInfo(id)
