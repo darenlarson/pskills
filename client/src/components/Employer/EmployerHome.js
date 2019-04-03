@@ -57,8 +57,8 @@ class EmployerHome extends React.Component {
       return <div>An error happened</div>;
     }
     return (
-      <div className="overview-container">
-        <div className="overview-content">
+      <div className="employer-container">
+        <div className="employer-content">
           <div className="prison-info">
             <h2>{this.props.prisonInfo.name}</h2>
             <p>{this.props.prisonInfo.location}</p>
@@ -68,6 +68,7 @@ class EmployerHome extends React.Component {
 
           <div className="add-wrapper">
             <form className="add-form" onSubmit={this.handleSubmit}>
+              <div className="header">Add Prisoners</div>
               <input
                 className="header"
                 type="text"

@@ -1,13 +1,14 @@
-.overview-container {
+.employer-container {
   background-image: url(../../../images/agriculture.jpg);
   background-position: center;
   background-size: cover;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.7);
   background-blend-mode: lighten;
+  padding-bottom: 500px;
 }
 
-.overview-content {
+.employer-content {
   margin: 0 auto;
   max-width: 1000px;
   display: flex;

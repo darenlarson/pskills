@@ -1,7 +1,9 @@
 .footer-wrapper {
     background: #777;
-    position: static;
+    /* position: static; */
     bottom: 0;
+    position: fixed;
+    width: 100%;
 }
 
 .footer-content {

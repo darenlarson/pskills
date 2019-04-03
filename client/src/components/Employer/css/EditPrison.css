@@ -1,35 +1,52 @@
-.add-prison-wrapper {
-  max-width: 800px;
-  width: 90%;
-  margin: 10px auto;
-  border: 1px solid grey;
-  background: #777;
-  color: white;
-  padding: 10px;
-  text-decoration: none;
+.edit-prison-container {
+  background-image: url(../../../images/agriculture.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  background-blend-mode: lighten;
+  padding-bottom: 500px;
 }
 
-.create-prison-form {
+.edit-prison-wrapper {
+  max-width: 500px;
+  width: 90%;
+  margin: 0 auto;
+  /* background: #777; */
+  color: white;
+  /* padding: 10px 10px 10px 10px; */
+  /* text-decoration: none; */
+}
+
+.edit-prison-wrapper .edit-form-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  width: 100%;
+}
+
+.edit-prison-form {
+  background: #777;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* width: 100%; */
+  width: 100%;
 }
 
-.create-prison-form input {
+.edit-prison-form input {
   background: rgb(150, 150, 150);
   color: white;
   border: none;
   font-size: 1.6rem;
-  margin: 10px 30px 10px 30px;
-  width: 100%;
+  margin: 10px 0;
+  width: 75%;
 }
 
-.create-prison-form .header {
+.edit-prison-form .header {
     font-size: 2.2rem;
 }
 
-.create-prison-form button {
+.edit-prison-form button {
   border: 1px solid white;
   background: #777;
   color: white;
@@ -38,9 +55,10 @@
   letter-spacing: 2px;
   padding: 8px;
   width: 200px;
+  margin-bottom: 20px;
 }
 
-.create-prison-form button:hover {
+.edit-prison-form button:hover {
   cursor: pointer;
   background: white;
   color: #777;
