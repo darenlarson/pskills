@@ -1,5 +1,6 @@
 import React from "react";
 import Prisoner from "./Prisoner";
+import { Link } from 'react-router-dom';
 import "./css/EmployerHome.css";
 
 class EmployerHome extends React.Component {
@@ -62,6 +63,7 @@ class EmployerHome extends React.Component {
             <h2>{this.props.prisonInfo.name}</h2>
             <p>{this.props.prisonInfo.location}</p>
             <p>{this.props.prisonInfo.phoneNumber}</p>
+            <Link className="edit-btn" to="/employer/edit">EDIT</Link>
           </div>
 
           <div className="add-wrapper">

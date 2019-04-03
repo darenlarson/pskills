@@ -23,7 +23,23 @@
 }
 
 .prison-info h2, .prison-info p {
-  margin-right: 40px;
+  margin-right: 30px;
+}
+
+.prison-info .edit-btn {
+  font-size: 1rem;
+  text-decoration: none;
+  border: 1px solid white;
+  background: #777;
+  color: white;
+  border-radius: 3px;
+  padding: 0 5px;
+}
+
+.prison-info .edit-btn:hover {
+  cursor: pointer;
+  background: white;
+  color: #777;
 }
 
 .add-wrapper {

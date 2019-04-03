@@ -10,6 +10,7 @@ import Footer from "./components/Footer/Footer";
 import Authentication from "./components/Login/Authentication";
 import EmployerHOC from "./components/Employer/EmployerHOC";
 import EditPrisoner from "./components/Employer/EditPrisoner";
+import EditPrison from "./components/Employer/EditPrison";
 
 class App extends React.Component {
   constructor(props) {
@@ -228,6 +229,29 @@ class App extends React.Component {
       });
   };
 
+  editPrison = changes => {
+    console.log("editPrison() invoked");
+    console.log(changes)
+
+    const id = this.state.prisonId
+    const token = localStorage.getItem("jwt");
+    const requestOptions = {
+      headers: {
+        authorization: token
+      }
+    };
+
+    axios
+      .put(`http://localhost:5000/api/prisons/${id}`, changes, requestOptions)
+      .then(res => {
+        console.log(res);
+        this.getPrisonInfo(id)
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   render() {
     return (
       <div className="AppContainer">
@@ -283,6 +307,18 @@ class App extends React.Component {
               getPrisonInfo={this.getPrisonInfo}
               addPrisoner={this.addPrisoner}
               createPrison={this.createPrison}
+            />
+          )}
+        />
+
+        <Route
+          exact
+          path="/employer/edit"
+          render={props => (
+            <EditPrison
+              {...props}
+              prisonInfo={this.state.prisonInfo}
+              editPrison={this.editPrison}
             />
           )}
         />
