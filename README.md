@@ -1,5 +1,8 @@
 # pskills
-This app contains two user types. A prison admin (who has the ability to log in) and a single user (no need to log in so no need for user data to be persisted on this user type) who can view posted profiles by prison. 
+Front-end deployed here: https://prisonerskills.netlify.com/
+Back-end deployer here: https://prisoner-skills.herokuapp.com/
+
+I originally worked on a team to create this application during a 4 day sprint in Lambda School. I created the back-end for that project. Since then, I took the backend and created my own front-end appllication using react.
 
 
 # Routes
