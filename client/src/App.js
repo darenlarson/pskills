@@ -48,7 +48,7 @@ class App extends React.Component {
     console.log(`id: ${id}`);
     axios
       // .get(`http://localhost:5000/api/prisons/${id}`)
-      .get(`https://prisoner-skills.herokuapp.com/prisons/${id}`)
+      .get(`https://prisoner-skills.herokuapp.com/api/prisons/${id}`)
       .then(res => {
         console.log(res);
 
