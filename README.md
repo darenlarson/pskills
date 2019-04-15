@@ -2,7 +2,13 @@
 Front-end deployed here: https://prisonerskills.netlify.com/
 Back-end deployer here: https://prisoner-skills.herokuapp.com/
 
-I originally worked on a team to create this application during a 4 day sprint in Lambda School. I created the back-end for that project. Since then, I took the backend and created my own front-end appllication using react.
+I originally worked on a team to create this application during a 4 day sprint in Lambda School. I created the back-end for that project. Since then, I took the backend and created my own front-end application using react.
+
+# What is it?
+This web application was designed to match employers with prison labor. Prison admins can sign their institutions up on the website and add profiles of the inmates they have available for work. Employers can search our database for institutions nearby with labor that matches their desired skill sets.
+
+# Technologies used
+React | Node | Express | CSS | HTML | JWT | Knex | SQLite
 
 
 # Routes
